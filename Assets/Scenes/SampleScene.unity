@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Character_Male_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1045401375514670, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4111819248598986, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.3
@@ -1094,6 +1098,10 @@ MonoBehaviour:
   speed: 5
   checkInterval: 2
   approachFactor: 0.1
+  projectile: {fileID: 3438700968593956038, guid: 526754b58c9bb9e4d9f3e36629b63dab,
+    type: 3}
+  shootInterval: 3
+  launchVelocity: 70
 --- !u!136 &773566556
 CapsuleCollider:
   m_ObjectHideFlags: 0
