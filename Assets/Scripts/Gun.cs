@@ -5,7 +5,7 @@ public class Gun : MonoBehaviour
 {
 public Transform bulletSpawnPoint;
 public GameObject bulletPrefab;
-public float bulletForce = 10f;
+public float bulletForce = 1000f;
 // Update is called once per frame
 void Update()
 {
@@ -13,7 +13,7 @@ void Update()
     {
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         var rb = bullet.AddComponent<Rigidbody>();
-        // rb.useGravity = true;
+        rb.useGravity = false;
         rb.AddForce(bulletSpawnPoint.forward * bulletForce, ForceMode.Impulse);
         
         Destroy(bullet, 2); // Détruire la balle après 2 secondes
