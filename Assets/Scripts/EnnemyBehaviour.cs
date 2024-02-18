@@ -36,29 +36,7 @@ public class EnemyBehaviour : MonoBehaviour
             Move();
         }
     }
-
     void Move()
-    {
-        Vector3 directionToPlayer = playerTransform.position - transform.position;
-        float distance = directionToPlayer.magnitude;
-
-        if (distance <= 5f)
-        {
-            MoveTowardsPlayer();
-        }
-        else
-        {
-            MoveRandomlyApproachPlayer();
-        }
-    }
-
-    void MoveTowardsPlayer()
-    {
-        Vector3 direction = (playerTransform.position - transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
-    }
-
-    void MoveRandomlyApproachPlayer()
     {
         if (Time.time >= nextCheckTime)
         {
