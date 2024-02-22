@@ -292,7 +292,11 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5201250505687089383, guid: 6f7448c602368ce4dbd9d61980d4f9f4,
     type: 3}
   amountToKill: 10
+  enemySpawnedSinceStart: 9
   maxEnemies: 2
+  currentEnemies: 0
+  collectible1Prefab: {fileID: 1671469898}
+  collectible2Prefab: {fileID: 0}
 --- !u!4 &372648808
 Transform:
   m_ObjectHideFlags: 0
@@ -887,7 +891,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756271806}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.28152645, y: -0.014410005, z: 0.0042283144, w: 0.95943594}
+  m_LocalRotation: {x: 0.28152645, y: -0.014409972, z: 0.004228305, w: 0.95943594}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2223,6 +2227,12 @@ Transform:
   - {fileID: 1379376018}
   m_Father: {fileID: 1764028795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1671469898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1045401375514670, guid: f11fc98cf1e8d5547a9b2ec85cc9c664,
+    type: 3}
+  m_PrefabInstance: {fileID: 381043852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764028793
 GameObject:
   m_ObjectHideFlags: 0

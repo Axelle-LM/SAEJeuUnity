@@ -9,7 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
     private Transform playerTransform;
     private Vector3 randomDirection;
     private float nextCheckTime = 0;
-    public Spawner spawner;
+    private Spawner spawner;
 
     public GameObject projectile;
     public float shootInterval = 3f;
@@ -23,6 +23,11 @@ public class EnemyBehaviour : MonoBehaviour
     }
     private void OnDestroy()
     {
+        if (spawner.enemySpawnedSinceStart >= spawner.amountToKill)
+        {
+            Instantiate(spawner.collectible1Prefab, transform.position, Quaternion.identity);
+            Instantiate(spawner.collectible2Prefab, transform.position, Quaternion.identity);
+        }
         spawner.currentEnemies--;
     }
     void Update()

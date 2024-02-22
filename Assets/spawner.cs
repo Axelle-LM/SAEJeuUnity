@@ -10,6 +10,8 @@ public class Spawner : MonoBehaviour
     public int enemySpawnedSinceStart = 0;
     public int maxEnemies = 2;
     public int currentEnemies = 0;
+    public GameObject collectible1Prefab;
+    public GameObject collectible2Prefab;
 
     // Update is called once per frame
     void Update()
