@@ -6,20 +6,22 @@ public class Spawner : MonoBehaviour
 {
     // En développement, pas finit
     public GameObject enemyPrefab;
-    public int amountToKill = 2;
+    public int amountToKill = 10;
+    public int enemySpawnedSinceStart = 0;
     public int maxEnemies = 2;
-
-    private int currentEnemies = 0;
+    public int currentEnemies = 0;
 
     // Update is called once per frame
     void Update()
     {
-        // Vérifiez si le nombre actuel d'ennemis sur le terrain est inférieur au nombre souhaité
-        if (currentEnemies < amountToKill)
+        if (enemySpawnedSinceStart < amountToKill)
         {
-            // Générez un ennemi
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-            currentEnemies++;
+            if (currentEnemies < maxEnemies)
+            {
+                Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+                enemySpawnedSinceStart++;
+                currentEnemies++;
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
     private Transform playerTransform;
     private Vector3 randomDirection;
     private float nextCheckTime = 0;
+    public Spawner spawner;
 
     public GameObject projectile;
     public float shootInterval = 3f;
@@ -18,8 +19,12 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        spawner = GameObject.FindObjectOfType<Spawner>();
     }
-
+    private void OnDestroy()
+    {
+        spawner.currentEnemies--;
+    }
     void Update()
     {
         if (playerTransform != null)
