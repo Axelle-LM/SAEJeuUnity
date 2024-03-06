@@ -26,4 +26,11 @@ public class ThirdPersonMouvement : MonoBehaviour
             controller.Move(moveDirection.normalized * speed * Time.deltaTime);
         }
     }
+
+    void LateUpdate()
+    {
+        float mouseX = Input.GetAxis("Mouse X");
+        float rotationAmount = mouseX * Time.deltaTime * 100f;
+        transform.Rotate(0f, rotationAmount, 0f);
+    }
 }
