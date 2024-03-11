@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    private PlayerHealth playerHealth;
+    private GameObject player;
+    private CapsuleCollider playerCollider;
+    private PlayerHealth playerHealthComponent;
 
     private void Start()
     {
-         playerHealth = GameObject.FindObjectOfType<PlayerHealth>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerCollider = player.GetComponent<CapsuleCollider>();
+        playerHealthComponent = player.GetComponent<PlayerHealth>();
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (playerHealth != null)
+        if (collision.collider == playerCollider)
         {
-            playerHealth.playerHealth -= 1;
+            if (playerHealthComponent.playerHealth > 0)
+            {
+                playerHealthComponent.playerHealth -= 1;
+            }
         }
+        Destroy(gameObject);
     }
 }

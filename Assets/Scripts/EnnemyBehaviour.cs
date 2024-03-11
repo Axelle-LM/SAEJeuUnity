@@ -19,17 +19,22 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        spawner = GameObject.FindObjectOfType<Spawner>();
+        spawner = FindObjectOfType<Spawner>();
     }
+
     private void OnDestroy()
     {
-        if (spawner.enemySpawnedSinceStart >= spawner.amountToKill)
+        if (spawner != null && spawner.enemySpawnedSinceStart >= spawner.amountToKill)
         {
             Instantiate(spawner.collectible1Prefab, transform.position, Quaternion.identity);
             Instantiate(spawner.collectible2Prefab, transform.position, Quaternion.identity);
         }
-        spawner.currentEnemies--;
+        if (spawner != null)
+        {
+            spawner.currentEnemies--; // Vérification si spawner est nul pour éviter les erreurs
+        }
     }
+
     void Update()
     {
         if (playerTransform != null)
@@ -46,6 +51,7 @@ public class EnemyBehaviour : MonoBehaviour
             Move();
         }
     }
+
     void Move()
     {
         if (Time.time >= nextCheckTime)
@@ -69,7 +75,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void ShootTowardsPlayer()
     {
-        GameObject enemyBullet = Instantiate(projectile, transform.position + transform.forward, transform.rotation);
-        enemyBullet.GetComponent<Rigidbody>().AddForce(transform.forward * launchVelocity);
+        GameObject enemyBullet = Instantiate(projectile, transform.position + transform.forward, Quaternion.LookRotation(playerTransform.position - transform.position)); // Correction de l'orientation de la balle
+        enemyBullet.GetComponent<Rigidbody>().AddForce(enemyBullet.transform.forward * launchVelocity); // Utilisation de transform.forward de la balle tirée pour la direction
     }
 }
