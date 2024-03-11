@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     {
         // Suppose que Update est appelée pour chaque changement de santé du joueur
         UpdateHealthUI();
+        GameOver();
     }
 
     void UpdateHealthUI()
@@ -44,6 +45,13 @@ public class PlayerHealth : MonoBehaviour
             Image image = imageObject.AddComponent<Image>();
             image.sprite = heart;
             heartObjects.Add(imageObject); // Ajoute l'objet coeur à la liste pour pouvoir le détruire plus tard
+        }
+    }
+    void GameOver()
+    {
+        if (playerHealth <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 }

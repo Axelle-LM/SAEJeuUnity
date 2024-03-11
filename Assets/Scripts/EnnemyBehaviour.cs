@@ -1,19 +1,20 @@
 using UnityEngine;
+using UnityEngine.ProBuilder;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public float speed = 5f;
-    public float checkInterval = 2f;
-    public float approachFactor = 0.1f;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float checkInterval = 2f;
+    [SerializeField] private float approachFactor = 0.1f;
 
     private Transform playerTransform;
     private Vector3 randomDirection;
     private float nextCheckTime = 0;
     private Spawner spawner;
 
-    public GameObject projectile;
-    public float shootInterval = 3f;
-    public float launchVelocity = 500;
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private float shootInterval = 3f;
+    [SerializeField] private float launchVelocity = 500;
     private float timeSinceLastShot = 0;
 
     void Start()

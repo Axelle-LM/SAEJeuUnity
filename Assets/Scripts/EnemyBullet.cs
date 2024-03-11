@@ -18,11 +18,15 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.collider == playerCollider)
         {
-            if (playerHealthComponent.playerHealth > 0)
-            {
-                playerHealthComponent.playerHealth -= 1;
-            }
+            removeHealthFromPlayer(playerHealthComponent, 1);
         }
         Destroy(gameObject);
+    }
+    void removeHealthFromPlayer(PlayerHealth playerHealthComponent, int damageTaken)
+    {
+        if (playerHealthComponent.playerHealth > 0)
+        {
+            playerHealthComponent.playerHealth -= damageTaken;
+        }
     }
 }
