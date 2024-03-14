@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        // Suppose que Update est appelée pour chaque changement de santé du joueur
+        // Suppose que Update est appelï¿½e pour chaque changement de santï¿½ du joueur
         UpdateHealthUI();
         GameOver();
     }
@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
         }
         heartObjects.Clear();
 
-        // Affiche les coeurs en fonction de la santé du joueur
+        // Affiche les coeurs en fonction de la santï¿½ du joueur
         for (int i = 0; i < playerHealth; i++)
         {
             GameObject imageObject = new GameObject("heart");
@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
 
             Image image = imageObject.AddComponent<Image>();
             image.sprite = heart;
-            heartObjects.Add(imageObject); // Ajoute l'objet coeur à la liste pour pouvoir le détruire plus tard
+            heartObjects.Add(imageObject); // Ajoute 
         }
     }
     void GameOver()

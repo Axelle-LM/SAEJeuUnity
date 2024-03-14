@@ -1,0 +1,34 @@
+{
+    "name": "GunInputActions",
+    "maps": [
+        {
+            "name": "Gun",
+            "id": "959e896e-d979-497c-ad32-75f759f0642e",
+            "actions": [
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "1982d34b-9959-41d6-8a02-ec23ec2ef255",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "859533d3-b9ba-4d40-9203-efda07d6ba9e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
