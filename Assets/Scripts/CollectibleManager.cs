@@ -2,32 +2,21 @@ using UnityEngine;
 
 public class CollectibleManager : MonoBehaviour
 {
-    [SerializeField] private Transform player; // L'objet vers lequel l'objet actuel sera attiré
-    [SerializeField] private float attractionForce = 10f; // La force d'attraction
-
-    private Rigidbody rb;
-
-    private void Start()
+    [SerializeField] private CollectibleData referenceItem;
+    [SerializeField] private InventoryManager inventoryManager;
+    private void OnCollisionEnter(Collision collision)
     {
-        rb = GetComponent<Rigidbody>();
-        if (rb == null)
+        if (inventoryManager != null) // Ensure inventoryManager is not null
         {
-            Debug.LogError("Rigidbody non trouvé sur l'objet. Ajoutez un Rigidbody pour utiliser ce script.");
+            if (collision.collider.CompareTag("Player"))
+            {
+                inventoryManager.Add(referenceItem);
+                Destroy(gameObject);
+            }
         }
-    }
-
-    private void FixedUpdate()
-    {
-        if (player != null)
+        else
         {
-            // Calcule la direction de l'objet cible
-            Vector3 direction = player.position - transform.position;
-
-            // Calcule la force d'attraction
-            Vector3 attraction = direction.normalized * attractionForce * Time.fixedDeltaTime;
-
-            // Applique la force à l'objet
-            rb.AddForce(attraction, ForceMode.Acceleration);
+            Debug.LogError("InventoryManager reference is null!");
         }
     }
 }
