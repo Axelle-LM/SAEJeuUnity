@@ -118,4 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 834fd9c0260ee429fbc883fe0fa30ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
+  damageTakenByEnemy: 1
+  enemy: {fileID: 5201250505687089383, guid: 6f7448c602368ce4dbd9d61980d4f9f4, type: 3}
+  spawner: {fileID: 0}

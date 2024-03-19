@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
 {
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
-    public float bulletForce = 1000f;
+    public float bulletForce = 200f;
 
     PlayerInput playerInput;
     InputAction shootAction;
@@ -33,6 +33,6 @@ public class Gun : MonoBehaviour
         rb.useGravity = false;
         rb.AddForce(bulletSpawnPoint.forward * bulletForce, ForceMode.Impulse);
         
-        Destroy(bullet, 2); // Détruire la balle après 2 secondes
+        
     }
 }

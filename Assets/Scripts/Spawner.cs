@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     public int currentEnemies = 0;
     public GameObject collectible1Prefab;
     public GameObject collectible2Prefab;
+    public int enemyKilled;
 
     // Update is called once per frame
     void Update()
@@ -25,5 +26,34 @@ public class Spawner : MonoBehaviour
                 currentEnemies++;
             }
         }
+
+        else
+        {
+            Debug.Log(enemyKilled);
+            // Appeler la fonction de spawn des collectibles lorsque le nombre d'ennemis requis est atteint
+            CollectibleSpawn();
+        }
+
+    }
+
+    void CollectibleSpawn()
+    {
+        if (enemyKilled >= amountToKill)
+        {
+            if (collectible1Prefab != null)
+            {
+                Instantiate(collectible1Prefab, transform.position, Quaternion.identity);
+            }
+            if (collectible2Prefab != null)
+            {
+                Instantiate(collectible2Prefab, transform.position, Quaternion.identity);
+            }
+        }
+    }
+
+    public void addEnemyKilled()
+    {
+  
+        enemyKilled++;
     }
 }

@@ -4,38 +4,42 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float life = 3;
-    public int damage = 1; // Dégâts infligés au joueur
+    public int damageTakenByEnemy = 1;
 
-    private GameObject player;
-    private CapsuleCollider playerCollider;
-    private PlayerHealth playerHealthComponent;
+    [SerializeField] private GameObject enemy;
+    private CapsuleCollider enemyCollider;
+    private EnemyHealth enemyHealthComponent;
+    [SerializeField] private Spawner spawner;
 
     void Awake()
-    {
-        Destroy(gameObject, life);
-        player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
+    {   
+        if (enemy != null)
         {
-            playerCollider = player.GetComponent<CapsuleCollider>();
-            playerHealthComponent = player.GetComponent<PlayerHealth>();
+            enemyCollider = enemy.GetComponent<CapsuleCollider>();
+            enemyHealthComponent = enemy.GetComponent<EnemyHealth>();
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider == playerCollider && playerHealthComponent != null)
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            RemoveHealthFromPlayer(playerHealthComponent, damage);
+            Debug.Log("touché coulé");
+            EnemyHealth enemyHealthComponent = collision.gameObject.GetComponent<EnemyHealth>();
+            if (enemyHealthComponent != null)
+            {
+                RemoveHealthFromEnemy(enemyHealthComponent, damageTakenByEnemy);
+            }
         }
         Destroy(gameObject);
     }
 
-    void RemoveHealthFromPlayer(PlayerHealth playerHealthComponent, int damageTaken)
+
+    void RemoveHealthFromEnemy(EnemyHealth enemyHealthComponent, int damageTaken)
     {
-        if (playerHealthComponent.playerHealth > 0)
+        if (enemyHealthComponent.enemyHealth > 0)
         {
-            playerHealthComponent.playerHealth -= damageTaken;
+            enemyHealthComponent.enemyHealth -= damageTaken;
         }
     }
 }

@@ -7,13 +7,19 @@ public class EnemyBullet : MonoBehaviour
     private GameObject player;
     private CapsuleCollider playerCollider;
     private PlayerHealth playerHealthComponent;
+    
+
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerCollider = player.GetComponent<CapsuleCollider>();
         playerHealthComponent = player.GetComponent<PlayerHealth>();
+
+       
     }
+
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.collider == playerCollider)
