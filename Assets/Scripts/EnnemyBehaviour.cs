@@ -10,7 +10,6 @@ public class EnemyBehaviour : MonoBehaviour
     private Transform playerTransform;
     private Vector3 randomDirection;
     private float nextCheckTime = 0;
-    private Spawner spawner;
 
     [SerializeField] private GameObject projectile;
     [SerializeField] private float shootInterval = 3f;
@@ -20,20 +19,6 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        spawner = FindObjectOfType<Spawner>();
-    }
-
-    private void OnDestroy()
-    {
-        if (spawner != null && spawner.enemySpawnedSinceStart >= spawner.amountToKill)
-        {
-            Instantiate(spawner.collectible1Prefab, transform.position, Quaternion.identity);
-            Instantiate(spawner.collectible2Prefab, transform.position, Quaternion.identity);
-        }
-        if (spawner != null)
-        {
-            spawner.currentEnemies--; // Vérification si spawner est nul pour éviter les erreurs
-        }
     }
 
     void Update()

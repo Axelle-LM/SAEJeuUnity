@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4847939359716892667
+--- !u!1 &8379052445401088073
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7587547388104036502}
-  - component: {fileID: 6441754593032100348}
+  - component: {fileID: 6601554169693469433}
+  - component: {fileID: 4941413450913132489}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7587547388104036502
+--- !u!4 &6601554169693469433
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4847939359716892667}
+  m_GameObject: {fileID: 8379052445401088073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 202.45, y: 12.29, z: -15.75}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6441754593032100348
+--- !u!114 &4941413450913132489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4847939359716892667}
+  m_GameObject: {fileID: 8379052445401088073}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c3721b3acbc6b64d9fd02a55580ea5a, type: 3}
@@ -46,11 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5201250505687089383, guid: 6f7448c602368ce4dbd9d61980d4f9f4,
     type: 3}
-  amountToKill: 1
-  enemiesKilled: 0
-  maxEnemies: 1
-  currentEnemies: 0
-  collectible1Prefab: {fileID: 0}
-  collectible2Prefab: {fileID: 0}
-  spawnerFinished: 0
-  enemySpawnedSinceStart: 0
+  collectible1Prefab: {fileID: 1847877826286975539, guid: 5962cc2540147ed4f845afa06ab211dc,
+    type: 3}
+  collectible2Prefab: {fileID: 1847877826286975539, guid: 5962cc2540147ed4f845afa06ab211dc,
+    type: 3}
+  amountOfEnemyToKill: 10
+  maxEnemiesOnField: 2

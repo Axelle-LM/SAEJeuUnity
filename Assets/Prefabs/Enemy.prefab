@@ -169,4 +169,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 2
-  spawner: {fileID: 6441754593032100348, guid: 68702f72c2fb6014da3c080104981567, type: 3}
+  spawner: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b, type: 3}

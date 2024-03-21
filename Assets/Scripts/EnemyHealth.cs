@@ -20,7 +20,6 @@ public class EnemyHealth : MonoBehaviour
         if (enemyHealth <= 0)
         {
             Destroy(gameObject);
-            spawner.addEnemyKilled();
         }
     }
 }

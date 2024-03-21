@@ -24,7 +24,6 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("touché coulé");
             EnemyHealth enemyHealthComponent = collision.gameObject.GetComponent<EnemyHealth>();
             if (enemyHealthComponent != null)
             {

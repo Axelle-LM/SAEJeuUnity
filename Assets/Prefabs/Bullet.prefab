@@ -120,4 +120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTakenByEnemy: 1
   enemy: {fileID: 5201250505687089383, guid: 6f7448c602368ce4dbd9d61980d4f9f4, type: 3}
-  spawner: {fileID: 0}
+  spawner: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b, type: 3}
