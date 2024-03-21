@@ -4812,6 +4812,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
+        type: 3}
+      propertyPath: amountOfEnemyToKill
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6601554169693469433, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15470,7 +15475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811074836}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.29654747, y: 0.11997649, z: -0.03758159, w: 0.94670635}
+  m_LocalRotation: {x: 0.29654747, y: 0.11997652, z: -0.037581597, w: 0.94670635}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18362,7 +18367,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045614232}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2965475, y: 0.11997647, z: -0.037581585, w: 0.94670635}
+  m_LocalRotation: {x: 0.2965475, y: 0.11997653, z: -0.037581608, w: 0.94670635}
   m_LocalPosition: {x: 197.18541, y: 27, z: -27.770296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
