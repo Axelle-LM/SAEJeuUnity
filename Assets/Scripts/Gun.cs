@@ -9,8 +9,12 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletForce = 200f;
 
+    public Camera mainCamera;
+    public float zoomAmount = 0.5f; // Montant du zoom
+
     PlayerInput playerInput;
     InputAction shootAction;
+    bool isZooming = false;
 
     void Start()
     {
@@ -24,6 +28,17 @@ public class Gun : MonoBehaviour
         {
             Shoot();
         }
+
+        if (shootAction.phase == InputActionPhase.Started)
+        {
+            isZooming = true;
+            ZoomCamera();
+        }
+        else if (shootAction.phase == InputActionPhase.Canceled)
+        {
+            isZooming = false;
+            ZoomCamera();
+        }
     }
 
     void Shoot()
@@ -32,7 +47,7 @@ public class Gun : MonoBehaviour
         var rb = bullet.AddComponent<Rigidbody>();
         rb.useGravity = false;
         rb.AddForce(bulletSpawnPoint.forward * bulletForce, ForceMode.Impulse);
-        
+    
         
     }
 }
