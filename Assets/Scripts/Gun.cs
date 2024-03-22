@@ -32,12 +32,12 @@ public class Gun : MonoBehaviour
         if (shootAction.phase == InputActionPhase.Started)
         {
             isZooming = true;
-            ZoomCamera();
+            // ZoomCamera();
         }
         else if (shootAction.phase == InputActionPhase.Canceled)
         {
             isZooming = false;
-            ZoomCamera();
+            // ZoomCamera();
         }
     }
 
