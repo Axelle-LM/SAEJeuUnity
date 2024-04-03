@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int playerHealth = 5;
-    [SerializeField] private Sprite heart;
-    [SerializeField] private Canvas userInterface;
-    private List<GameObject> heartObjects = new List<GameObject>();
+    public int m_playerHealth = 5;
+    [SerializeField] private Sprite m_heart;
+    [SerializeField] private Canvas m_userInterface;
+    private List<GameObject> m_heartObjects = new List<GameObject>();
 
     void Start()
     {
@@ -18,38 +18,36 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        // Suppose que Update est appel�e pour chaque changement de sant� du joueur
         UpdateHealthUI();
         GameOver();
     }
 
     void UpdateHealthUI()
     {
-        // Efface tous les coeurs existants pour les reconstruire
-        foreach (GameObject heartObject in heartObjects)
+        foreach (GameObject heartObject in m_heartObjects)
         {
             Destroy(heartObject);
         }
-        heartObjects.Clear();
+        m_heartObjects.Clear();
 
         // Affiche les coeurs en fonction de la sant� du joueur
-        for (int i = 0; i < playerHealth; i++)
+        for (int i = 0; i < m_playerHealth; i++)
         {
-            GameObject imageObject = new GameObject("heart");
+            GameObject imageObject = new GameObject("m_heart");
             RectTransform imageTransform = imageObject.AddComponent<RectTransform>();
-            imageTransform.transform.SetParent(userInterface.transform);
+            imageTransform.transform.SetParent(m_userInterface.transform);
             imageTransform.localScale = Vector3.one;
             imageTransform.anchoredPosition = new Vector2(-350f + (40 * i), 180f);
             imageTransform.sizeDelta = new Vector2(32, 32);
 
             Image image = imageObject.AddComponent<Image>();
-            image.sprite = heart;
-            heartObjects.Add(imageObject); // Ajoute 
+            image.sprite = m_heart;
+            m_heartObjects.Add(imageObject); // Ajoute 
         }
     }
     void GameOver()
     {
-        if (playerHealth <= 0)
+        if (m_playerHealth <= 0)
         {
             SceneManager.LoadScene("GameOver");
         }

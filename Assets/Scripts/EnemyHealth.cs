@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int enemyHealth = 2;
-    [SerializeField] private Spawner spawner;
+    public int m_enemyHealth = 2;
 
     // Update is called once per frame
     void Update()
@@ -17,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
 
     void killEnemy()
     {
-        if (enemyHealth <= 0)
+        if (m_enemyHealth <= 0)
         {
             Destroy(gameObject);
         }

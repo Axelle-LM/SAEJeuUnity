@@ -4,41 +4,27 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damageTakenByEnemy = 1;
+    public int m_damageTakenByEnemy = 1;
 
-    [SerializeField] private GameObject enemy;
-    private CapsuleCollider enemyCollider;
-    private EnemyHealth enemyHealthComponent;
-    [SerializeField] private Spawner spawner;
+    [SerializeField] private GameObject m_enemy;
+    [SerializeField] private Spawner m_spawner;
 
-    void Awake()
-    {   
-        if (enemy != null)
-        {
-            enemyCollider = enemy.GetComponent<CapsuleCollider>();
-            enemyHealthComponent = enemy.GetComponent<EnemyHealth>();
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision _collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (_collision.gameObject.CompareTag("Enemy"))
         {
-            EnemyHealth enemyHealthComponent = collision.gameObject.GetComponent<EnemyHealth>();
-            if (enemyHealthComponent != null)
-            {
-                RemoveHealthFromEnemy(enemyHealthComponent, damageTakenByEnemy);
-            }
+            EnemyHealth m_enemyHealthComponent = _collision.gameObject.GetComponent<EnemyHealth>();
+            RemoveHealthFromEnemy(m_enemyHealthComponent, m_damageTakenByEnemy);
         }
         Destroy(gameObject);
     }
 
 
-    void RemoveHealthFromEnemy(EnemyHealth enemyHealthComponent, int damageTaken)
+    void RemoveHealthFromEnemy(EnemyHealth _enemyHealthComponent, int _damageTaken)
     {
-        if (enemyHealthComponent.enemyHealth > 0)
+        if (_enemyHealthComponent.m_enemyHealth > 0)
         {
-            enemyHealthComponent.enemyHealth -= damageTaken;
+            _enemyHealthComponent.m_enemyHealth -= _damageTaken;
         }
     }
 }

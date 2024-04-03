@@ -2,25 +2,18 @@ using UnityEngine;
 
 public class CollectibleManager : MonoBehaviour
 {
-    [SerializeField] private CollectibleData referenceItem;
-    [SerializeField] private InventoryManager inventoryManager;
+    [SerializeField] private CollectibleData m_collectibleData;
+    [SerializeField] private InventoryManager m_inventoryManager;
     private void Start()
     {
-        inventoryManager = FindObjectOfType<InventoryManager>();
+        m_inventoryManager = FindObjectOfType<InventoryManager>();
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision _collision)
     {
-        if (inventoryManager != null) // Ensure inventoryManager is not null
+        if (_collision.collider.CompareTag("Player"))
         {
-            if (collision.collider.CompareTag("Player"))
-            {
-                inventoryManager.Add(referenceItem);
-                Destroy(gameObject);
-            }
-        }
-        else
-        {
-            Debug.LogError("InventoryManager reference is null!");
+            m_inventoryManager?.Add(m_collectibleData); //m_inventoryManager?.Example(); <=> if (m_inventoryManager != null) { Example(); }
+            Destroy(gameObject);
         }
     }
 }

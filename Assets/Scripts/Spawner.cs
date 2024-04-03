@@ -4,47 +4,44 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    //Prefabs
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private GameObject collectible1Prefab;
-    [SerializeField] private GameObject collectible2Prefab;
+    [SerializeField] private GameObject m_enemyPrefab;
+    [SerializeField] private GameObject m_collectible1Prefab;
+    [SerializeField] private GameObject m_collectible2Prefab;
 
-    private List<GameObject> enemies = new List<GameObject>();
+    private List<GameObject> m_enemies = new List<GameObject>();
 
-    //Config du spawner
-    [SerializeField] private int amountOfEnemyToKill = 10;
-    [SerializeField] private int maxEnemiesOnField = 3;
+    [SerializeField] private int m_amountOfEnemyToKill = 10;
+    [SerializeField] private int m_maxEnemiesOnField = 3;
 
-    //Pas touche
-    private int amountOfEnemyKilled = 0;
+    private int m_amountOfEnemyKilled = 0;
 
     void Update()
     {
-        if (amountOfEnemyKilled < amountOfEnemyToKill)
+        if (m_amountOfEnemyKilled < m_amountOfEnemyToKill)
         {
-            if (enemies.Count < maxEnemiesOnField)
+            if (m_enemies.Count < m_maxEnemiesOnField)
             {
-                GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-                enemies.Add(newEnemy);
+                GameObject newEnemy = Instantiate(m_enemyPrefab, transform.position, Quaternion.identity);
+                m_enemies.Add(newEnemy);
             }
 
             // Vérifie si un ennemi a été tué
-            foreach (GameObject enemy in enemies)
+            foreach (GameObject enemy in m_enemies)
             {
                 if (enemy == null)
                 {
-                    amountOfEnemyKilled++;
-                    enemies.Remove(enemy);
+                    m_amountOfEnemyKilled++;
+                    m_enemies.Remove(enemy);
                     break;
                 }
             }
 
             // Si le nombre d'ennemis tués atteint le nombre requis
-            if (amountOfEnemyKilled >= amountOfEnemyToKill)
+            if (m_amountOfEnemyKilled >= m_amountOfEnemyToKill)
             {
                 // Fait apparaitre les collectibles à la position du dernier ennemi tué
-                Instantiate(collectible1Prefab, transform.position, Quaternion.identity);
-                Instantiate(collectible2Prefab, transform.position, Quaternion.identity);
+                if (m_collectible1Prefab != null) { Instantiate(m_collectible1Prefab, transform.position, Quaternion.identity); }
+                if (m_collectible2Prefab != null) { Instantiate(m_collectible2Prefab, transform.position, Quaternion.identity); }
             }
         }
     }

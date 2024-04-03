@@ -3,35 +3,35 @@ using UnityEngine.ProBuilder;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float checkInterval = 2f;
-    [SerializeField] private float approachFactor = 0.1f;
+    [SerializeField] private float m_enemySpeed = 5f;
+    [SerializeField] private float m_checkInterval = 2f;
+    [SerializeField] private float m_approachFactor = 0.1f;
 
-    private Transform playerTransform;
-    private Vector3 randomDirection;
-    private float nextCheckTime = 0;
+    private Transform m_playerTransform;
+    private Vector3 m_randomDirection;
+    private float m_nextCheckTime = 0;
 
-    [SerializeField] private GameObject projectile;
-    [SerializeField] private float shootInterval = 3f;
-    [SerializeField] private float launchVelocity = 500;
-    private float timeSinceLastShot = 0;
+    [SerializeField] private GameObject m_projectile;
+    [SerializeField] private float m_shootInterval = 3f;
+    [SerializeField] private float m_launchVelocity = 500;
+    private float m_timeSinceLastShot = 0;
 
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        m_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        if (playerTransform != null)
+        if (m_playerTransform != null)
         {
             OrientTowardsPlayer();
 
-            timeSinceLastShot += Time.deltaTime;
-            if (timeSinceLastShot >= shootInterval)
+            m_timeSinceLastShot += Time.deltaTime;
+            if (m_timeSinceLastShot >= m_shootInterval)
             {
                 ShootTowardsPlayer();
-                timeSinceLastShot = 0;
+                m_timeSinceLastShot = 0;
             }
 
             Move();
@@ -40,20 +40,20 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Move()
     {
-        if (Time.time >= nextCheckTime)
+        if (Time.time >= m_nextCheckTime)
         {
-            Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
-            randomDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
-            randomDirection = Vector3.Lerp(randomDirection, directionToPlayer, approachFactor);
-            nextCheckTime = Time.time + checkInterval;
+            Vector3 directionToPlayer = (m_playerTransform.position - transform.position).normalized;
+            m_randomDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
+            m_randomDirection = Vector3.Lerp(m_randomDirection, directionToPlayer, m_approachFactor);
+            m_nextCheckTime = Time.time + m_checkInterval;
         }
 
-        transform.position += randomDirection * speed * Time.deltaTime;
+        transform.position += m_randomDirection * m_enemySpeed * Time.deltaTime;
     }
 
     void OrientTowardsPlayer()
     {
-        Vector3 direction = playerTransform.position - transform.position;
+        Vector3 direction = m_playerTransform.position - transform.position;
         direction.y = 0; // Empêche l'ennemi de regarder vers le haut ou vers le bas
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10f);
@@ -61,7 +61,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void ShootTowardsPlayer()
     {
-        GameObject enemyBullet = Instantiate(projectile, transform.position + transform.forward, Quaternion.LookRotation(playerTransform.position - transform.position)); // Correction de l'orientation de la balle
-        enemyBullet.GetComponent<Rigidbody>().AddForce(enemyBullet.transform.forward * launchVelocity); // Utilisation de transform.forward de la balle tirée pour la direction
+        GameObject enemyBullet = Instantiate(m_projectile, transform.position + transform.forward, Quaternion.LookRotation(m_playerTransform.position - transform.position)); // Correction de l'orientation de la balle
+        enemyBullet.GetComponent<Rigidbody>().AddForce(enemyBullet.transform.forward * m_launchVelocity); // Utilisation de transform.forward de la balle tirée pour la direction
     }
 }

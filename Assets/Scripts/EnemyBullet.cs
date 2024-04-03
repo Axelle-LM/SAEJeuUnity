@@ -4,35 +4,31 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    private GameObject player;
-    private CapsuleCollider playerCollider;
-    private PlayerHealth playerHealthComponent;
-    
-
+    private GameObject m_player;
+    private CapsuleCollider m_playerCollider;
+    private PlayerHealth m_playerHealthComponent;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerCollider = player.GetComponent<CapsuleCollider>();
-        playerHealthComponent = player.GetComponent<PlayerHealth>();
-
-       
+        m_player = GameObject.FindGameObjectWithTag("Player");
+        m_playerCollider = m_player.GetComponent<CapsuleCollider>();
+        m_playerHealthComponent = m_player.GetComponent<PlayerHealth>();
     }
 
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision _collision)
     {
-        if (collision.collider == playerCollider)
+        if (_collision.collider == m_playerCollider)
         {
-            removeHealthFromPlayer(playerHealthComponent, 1);
+            removeHealthFromPlayer(m_playerHealthComponent, 1);
         }
         Destroy(gameObject);
     }
-    void removeHealthFromPlayer(PlayerHealth playerHealthComponent, int damageTaken)
+    void removeHealthFromPlayer(PlayerHealth _playerHealthComponent, int _damageTaken)
     {
-        if (playerHealthComponent.playerHealth > 0)
+        if (_playerHealthComponent.m_playerHealth > 0) //vasy jpppp bof je souffre tro berk je vais dégueuler si je bois
         {
-            playerHealthComponent.playerHealth -= damageTaken;
+            _playerHealthComponent.m_playerHealth -= _damageTaken;
         }
     }
 }

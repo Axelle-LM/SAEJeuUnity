@@ -122,13 +122,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec8e15ec0c06aa4bb33202e828f9577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  checkInterval: 2
-  approachFactor: 0.1
-  projectile: {fileID: 3438700968593956038, guid: 526754b58c9bb9e4d9f3e36629b63dab,
+  m_enemySpeed: 5
+  m_checkInterval: 2
+  m_approachFactor: 0.1
+  m_projectile: {fileID: 3438700968593956038, guid: 526754b58c9bb9e4d9f3e36629b63dab,
     type: 3}
-  shootInterval: 3
-  launchVelocity: 500
+  m_shootInterval: 3
+  m_launchVelocity: 500
 --- !u!54 &3883793950514153339
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -168,5 +168,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ecafb5be7a196149860a5f186a42e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 2
-  spawner: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b, type: 3}
+  m_enemyHealth: 2
