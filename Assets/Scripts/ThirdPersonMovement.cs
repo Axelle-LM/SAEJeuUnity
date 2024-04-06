@@ -3,18 +3,21 @@ using UnityEngine.InputSystem;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    private Rigidbody m_Rigidbody;
-    public float moveSpeed = 5f;
+    [SerializeField] private Rigidbody m_Rigidbody;
+    [SerializeField] private float moveSpeed = 5f;
     private Vector2 direction;
 
     void Awake()
     {
-        m_Rigidbody = GetComponent<Rigidbody>();
         if (m_Rigidbody == null)
         {
-            m_Rigidbody = gameObject.AddComponent<Rigidbody>();
+            m_Rigidbody = GetComponent<Rigidbody>();
+            if (m_Rigidbody == null)
+            {
+                m_Rigidbody = gameObject.AddComponent<Rigidbody>();
+            }
+            m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
-        m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -46,14 +49,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            if (Cursor.lockState == CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+            Cursor.lockState = Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.None : CursorLockMode.Locked;
         }
     }
 }

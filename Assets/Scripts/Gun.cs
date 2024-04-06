@@ -5,49 +5,36 @@ using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
-    public Transform bulletSpawnPoint;
-    public GameObject bulletPrefab;
-    public float bulletForce = 200f;
+    [SerializeField] private Transform bulletSpawnPoint;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float bulletForce = 200f;
 
-    public Camera mainCamera;
-    public float zoomAmount = 0.5f; // Montant du zoom
+    private PlayerInput playerInput;
+    private InputAction shootAction;
 
-    PlayerInput playerInput;
-    InputAction shootAction;
-    bool isZooming = false;
-
-    void Start()
+    private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
         shootAction = playerInput.actions.FindAction("Shoot");
     }
 
-    void Update()
+    private void Update()
     {
         if (shootAction.triggered)
         {
             Shoot();
         }
-
-        if (shootAction.phase == InputActionPhase.Started)
-        {
-            isZooming = true;
-            // ZoomCamera();
-        }
-        else if (shootAction.phase == InputActionPhase.Canceled)
-        {
-            isZooming = false;
-            // ZoomCamera();
-        }
     }
 
-    void Shoot()
+    private void Shoot()
     {
-        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        var rb = bullet.AddComponent<Rigidbody>();
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            rb = bullet.AddComponent<Rigidbody>();
+        }
         rb.useGravity = false;
         rb.AddForce(bulletSpawnPoint.forward * bulletForce, ForceMode.Impulse);
-    
-        
     }
 }
