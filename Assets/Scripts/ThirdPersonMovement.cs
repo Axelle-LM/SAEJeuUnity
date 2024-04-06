@@ -6,20 +6,6 @@ public class ThirdPersonMovement : MonoBehaviour
     private Rigidbody m_Rigidbody;
     public float moveSpeed = 5f;
     private Vector2 direction;
-    private Transform cam;
-
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        if (Camera.main != null)
-        {
-            cam = Camera.main.transform;
-        }
-        else
-        {
-            Debug.LogWarning("No camera");
-        }
-    }
 
     void Awake()
     {
@@ -38,20 +24,21 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (cam != null)
+        // Déplacement du personnage
+        Vector3 moveDirection = new Vector3(direction.x, 0f, direction.y);
+        m_Rigidbody.MovePosition(m_Rigidbody.position + transform.TransformDirection(moveDirection) * moveSpeed * Time.fixedDeltaTime);
+
+        // Rotation du personnage en direction de la souris
+        Vector3 mousePosition = Mouse.current.position.ReadValue();
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
         {
-
-            Vector3 moveDirection = Quaternion.Euler(0f, cam.eulerAngles.y, 0f) * new Vector3(direction.x, 0f, direction.y);
-
-            Quaternion moveRotation = Quaternion.Euler(0f, cam.eulerAngles.y, 0f);
-
-            m_Rigidbody.MovePosition(m_Rigidbody.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
-            m_Rigidbody.MoveRotation(Quaternion.Lerp(m_Rigidbody.rotation, moveRotation, 10.0f * Time.fixedDeltaTime));
-
-        }
-        else
-        {
-            Debug.LogWarning("No camera found.");
+            Vector3 targetPosition = hit.point;
+            targetPosition.y = transform.position.y; // Assurez-vous que la hauteur est la même que celle du personnage
+            Vector3 lookDirection = targetPosition - transform.position;
+            Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
+            m_Rigidbody.MoveRotation(Quaternion.Lerp(m_Rigidbody.rotation, lookRotation, 10.0f * Time.fixedDeltaTime));
         }
     }
 

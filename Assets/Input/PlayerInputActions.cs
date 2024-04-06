@@ -44,6 +44,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rotation"",
+                    ""type"": ""Value"",
+                    ""id"": ""81b3124f-ea61-4b9e-8114-c44d6183438d"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -167,6 +176,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ToggleMouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f0dc23d-944d-49bd-a4cf-b3e249987d0c"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -177,6 +197,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_ToggleMouse = m_Player.FindAction("ToggleMouse", throwIfNotFound: true);
+        m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -240,12 +261,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_ToggleMouse;
+    private readonly InputAction m_Player_Rotation;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @ToggleMouse => m_Wrapper.m_Player_ToggleMouse;
+        public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -261,6 +284,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ToggleMouse.started += instance.OnToggleMouse;
             @ToggleMouse.performed += instance.OnToggleMouse;
             @ToggleMouse.canceled += instance.OnToggleMouse;
+            @Rotation.started += instance.OnRotation;
+            @Rotation.performed += instance.OnRotation;
+            @Rotation.canceled += instance.OnRotation;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -271,6 +297,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ToggleMouse.started -= instance.OnToggleMouse;
             @ToggleMouse.performed -= instance.OnToggleMouse;
             @ToggleMouse.canceled -= instance.OnToggleMouse;
+            @Rotation.started -= instance.OnRotation;
+            @Rotation.performed -= instance.OnRotation;
+            @Rotation.canceled -= instance.OnRotation;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -292,5 +321,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnToggleMouse(InputAction.CallbackContext context);
+        void OnRotation(InputAction.CallbackContext context);
     }
 }
