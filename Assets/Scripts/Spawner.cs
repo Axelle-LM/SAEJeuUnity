@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int m_maxEnemiesOnField = 3;
 
     private int m_amountOfEnemyKilled = 0;
+
+    [NonSerialized] public bool m_isFinished = false;
 
     void Update()
     {
@@ -42,6 +45,7 @@ public class Spawner : MonoBehaviour
                 // Fait apparaitre les collectibles à la position du dernier ennemi tué
                 if (m_collectible1Prefab != null) { Instantiate(m_collectible1Prefab, transform.position, Quaternion.identity); }
                 if (m_collectible2Prefab != null) { Instantiate(m_collectible2Prefab, transform.position, Quaternion.identity); }
+                m_isFinished = true;
             }
         }
     }
