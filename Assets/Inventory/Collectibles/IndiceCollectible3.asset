@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IndiceCollectible3
   m_EditorClassIdentifier: 
   id: 0
-  name: Indice
-  description: "Le troisi\xE8me indice"
+  name: "Coupable n\xB03"
+  description: CIA
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   model: {fileID: 1847877826286975539, guid: 509bc1165f1e94b4d8ea9e3669b89615, type: 3}
