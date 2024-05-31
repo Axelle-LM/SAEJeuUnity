@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 0
   name: "Coupable n\xB02"
   description: Hitler
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 732c1e1a10efd5b49b3ad44e47ba617d, type: 3}
   model: {fileID: 1847877826286975539, guid: 509bc1165f1e94b4d8ea9e3669b89615, type: 3}

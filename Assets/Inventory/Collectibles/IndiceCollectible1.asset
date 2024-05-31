@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 0
   name: "Coupable n\xB01"
   description: Aliens
-  icon: {fileID: 21300000, guid: 712d86389accf1444bf8daad4e0c1096, type: 3}
+  icon: {fileID: 21300000, guid: 41d8f471b36e44140b8c5ca17c9f904c, type: 3}
   model: {fileID: 1847877826286975539, guid: 5962cc2540147ed4f845afa06ab211dc, type: 3}
