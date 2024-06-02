@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public string m_name;
     [SerializeField] private GameObject m_enemyPrefab;
     [SerializeField] private GameObject m_collectible1Prefab;
     [SerializeField] private GameObject m_collectible2Prefab;
 
     private List<GameObject> m_enemies = new List<GameObject>();
 
-    [SerializeField] private int m_amountOfEnemyToKill = 10;
+    public int m_amountOfEnemyToKill = 10;
     [SerializeField] private int m_maxEnemiesOnField = 3;
 
-    private int m_amountOfEnemyKilled = 0;
+    [NonSerialized] public int m_amountOfEnemyKilled = 0;
 
     [NonSerialized] public bool m_isFinished = false;
 
