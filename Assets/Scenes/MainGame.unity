@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08911513, g: 0.14669964, b: 0.24207558, a: 1}
+  m_IndirectSpecularColor: {r: 0.05233775, g: 0.0921029, b: 0.18885565, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2320,6 +2320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawner: {fileID: 130293206}
+  m_spawnerCounter: {fileID: 1277327936}
 --- !u!65 &117046351
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4209,6 +4210,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5201250505687089383, guid: 6f7448c602368ce4dbd9d61980d4f9f4,
         type: 3}
+    - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
+        type: 3}
+      propertyPath: m_spawnerCounter
+      value: 
+      objectReference: {fileID: 721300712}
     - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
       propertyPath: amountOfEnemyToKill
@@ -7445,7 +7451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440504003}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.000000028377741, z: -0.0000016257549, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7686,6 +7692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawner: {fileID: 857908787}
+  m_spawnerCounter: {fileID: 1926289065}
 --- !u!65 &514351272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8151,7 +8158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1003777646}
-  boxSize: {x: 38, y: 4, z: 78}
+  boxSize: {x: 42, y: 4, z: 80.5}
 --- !u!54 &621338320
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8362,6 +8369,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5201250505687089383, guid: 6f7448c602368ce4dbd9d61980d4f9f4,
         type: 3}
+    - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
+        type: 3}
+      propertyPath: m_spawnerCounter
+      value: 
+      objectReference: {fileID: 1277327936}
     - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
       propertyPath: amountOfEnemyToKill
@@ -10103,7 +10115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &721300713
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10120,7 +10132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -240}
+  m_AnchoredPosition: {x: 300, y: 250}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &721300714
@@ -10156,7 +10168,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Salle3 : 0/10'
+  m_text: 'Salle3 : 0/0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11743,37 +11755,37 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c786515286c8ac6469b0cbfab305fd7f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 196.97
+      value: 194.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c786515286c8ac6469b0cbfab305fd7f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.98
+      value: 11.008
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c786515286c8ac6469b0cbfab305fd7f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.04
+      value: -4.88
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c786515286c8ac6469b0cbfab305fd7f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9056694
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c786515286c8ac6469b0cbfab305fd7f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c786515286c8ac6469b0cbfab305fd7f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.42398465
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c786515286c8ac6469b0cbfab305fd7f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c786515286c8ac6469b0cbfab305fd7f,
         type: 3}
@@ -11783,7 +11795,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c786515286c8ac6469b0cbfab305fd7f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -50.173
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c786515286c8ac6469b0cbfab305fd7f,
         type: 3}
@@ -13811,8 +13823,8 @@ Transform:
   - {fileID: 172230793}
   - {fileID: 275434007}
   - {fileID: 2043341282}
-  - {fileID: 278384492}
   - {fileID: 1281902004}
+  - {fileID: 278384492}
   m_Father: {fileID: 2133221271}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1134990646
@@ -15285,7 +15297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1277327937
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15302,7 +15314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -200}
+  m_AnchoredPosition: {x: 300, y: 250}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1277327938
@@ -15338,7 +15350,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Salle2 : 0/10'
+  m_text: 'Salle2 : 0/0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15466,6 +15478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawner: {fileID: 278384491}
+  m_spawnerCounter: {fileID: 721300712}
 --- !u!65 &1281902006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22932,7 +22945,7 @@ PrefabInstance:
     - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
       propertyPath: m_name
-      value: Salle4
+      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
@@ -22940,6 +22953,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5201250505687089383, guid: 061740598bd9bf04b91be041c2cb26be,
         type: 3}
+    - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
+        type: 3}
+      propertyPath: m_spawnerCounter
+      value: 
+      objectReference: {fileID: 1926289065}
     - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
       propertyPath: m_maxEnemiesOnField
@@ -23667,7 +23685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1926289066
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23684,7 +23702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -280}
+  m_AnchoredPosition: {x: 300, y: 250}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1926289067
@@ -23720,7 +23738,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Salle4 : 0/1'
+  m_text: 'Salle4 : 0/0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

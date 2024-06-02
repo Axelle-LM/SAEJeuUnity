@@ -10,6 +10,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject m_collectible1Prefab;
     [SerializeField] private GameObject m_collectible2Prefab;
 
+    [SerializeField] private GameObject m_spawnerCounter;
+
     private List<GameObject> m_enemies = new List<GameObject>();
 
     public int m_amountOfEnemyToKill = 10;
@@ -47,6 +49,7 @@ public class Spawner : MonoBehaviour
                 if (m_collectible1Prefab != null) { Instantiate(m_collectible1Prefab, transform.position, Quaternion.identity); }
                 if (m_collectible2Prefab != null) { Instantiate(m_collectible2Prefab, transform.position, Quaternion.identity); }
                 m_isFinished = true;
+                m_spawnerCounter.SetActive(false);
             }
         }
     }
