@@ -27,9 +27,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Déplacement du personnage
-        Vector3 moveDirection = new Vector3(direction.x, 0f, direction.y);
-        m_Rigidbody.MovePosition(m_Rigidbody.position + transform.TransformDirection(moveDirection) * moveSpeed * Time.fixedDeltaTime);
+        // Déplacement du personnage sans tenir compte de la rotation
+        Vector3 moveDirection = new Vector3(-direction.x, 0f, -direction.y);
+
+        m_Rigidbody.MovePosition(m_Rigidbody.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
 
         // Rotation du personnage en direction de la souris
         Vector3 mousePosition = Mouse.current.position.ReadValue();
