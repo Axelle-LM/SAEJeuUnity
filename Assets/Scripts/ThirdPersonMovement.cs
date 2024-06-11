@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class ThirdPersonMovement : MonoBehaviour
@@ -6,7 +7,12 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] private Rigidbody m_Rigidbody;
     [SerializeField] private float moveSpeed = 5f;
     private Vector2 direction;
+    private Animator animator;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     void Awake()
     {
         if (m_Rigidbody == null)
@@ -29,6 +35,8 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         // Déplacement du personnage sans tenir compte de la rotation
         Vector3 moveDirection = new Vector3(-direction.x, 0f, -direction.y);
+        if (moveDirection != Vector3.zero) { animator.SetBool("isRunning", true); animator.SetBool("isIdling", false); }
+        else                              { animator.SetBool("isIdling", true ); animator.SetBool("isRunning", false); }
 
         m_Rigidbody.MovePosition(m_Rigidbody.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
 

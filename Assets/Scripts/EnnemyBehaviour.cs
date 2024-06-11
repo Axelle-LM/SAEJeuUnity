@@ -15,9 +15,10 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float m_shootInterval = 3f;
     [SerializeField] private float m_launchVelocity = 500;
     private float m_timeSinceLastShot = 0;
-
+    private Animator animator;
     void Start()
     {
+        animator = GetComponent<Animator>();
         m_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -40,6 +41,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Move()
     {
+        animator.SetBool("isRunning", true);
         if (Time.time >= m_nextCheckTime)
         {
             Vector3 directionToPlayer = (m_playerTransform.position - transform.position).normalized;
