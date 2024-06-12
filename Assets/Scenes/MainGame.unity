@@ -4094,6 +4094,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
+      propertyPath: randomMax
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
+        type: 3}
       propertyPath: m_enemyPrefab
       value: 
       objectReference: {fileID: 6966888650684059815, guid: f434f331919bd134ba732448a941b1d7,
@@ -4142,7 +4147,7 @@ PrefabInstance:
     - target: {fileID: 6601554169693469433, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.1255
+      value: -6.053
       objectReference: {fileID: 0}
     - target: {fileID: 6601554169693469433, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
@@ -4152,7 +4157,7 @@ PrefabInstance:
     - target: {fileID: 6601554169693469433, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.596503
+      value: -9.621
       objectReference: {fileID: 0}
     - target: {fileID: 6601554169693469433, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
@@ -4307,6 +4312,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: both bookshelfs
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ff7d646d9a46d9c4d9aa963171d86ea0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
     - target: {fileID: 6510829047868529388, guid: ff7d646d9a46d9c4d9aa963171d86ea0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4387,6 +4397,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MSH_Sofa_Soviet (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6563954410912718068, guid: 98f778aa3b9439a4998e9f37240c3ac1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5858,6 +5873,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_filing_cabinet_2_embedded
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: baabdf64ef7e1954abae27cd79ad71f6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6499,6 +6519,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MSH_Sofa_Soviet (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6563954410912718068, guid: 98f778aa3b9439a4998e9f37240c3ac1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7028,6 +7053,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Detective_Desk (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011742100570416912, guid: 8888b21fb7c49e14cbb30a984c2af89d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8179,6 +8209,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: meuble rangement 01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e5932955a37414e4f90edbefbac4f3f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8528,6 +8563,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
+      propertyPath: randomMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
+        type: 3}
+      propertyPath: randomMin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941413450913132489, guid: 3db6bf94aef142a4a86ac996802cb07b,
+        type: 3}
       propertyPath: m_enemyPrefab
       value: 
       objectReference: {fileID: 6966888650684059815, guid: f434f331919bd134ba732448a941b1d7,
@@ -8576,7 +8621,7 @@ PrefabInstance:
     - target: {fileID: 6601554169693469433, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.936
+      value: 5.996
       objectReference: {fileID: 0}
     - target: {fileID: 6601554169693469433, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
@@ -8586,7 +8631,7 @@ PrefabInstance:
     - target: {fileID: 6601554169693469433, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.531
+      value: 9.673
       objectReference: {fileID: 0}
     - target: {fileID: 6601554169693469433, guid: 3db6bf94aef142a4a86ac996802cb07b,
         type: 3}
@@ -11721,6 +11766,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_table (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182623969851862631, guid: f1a1dea969d98654d88e01801b6770f8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19007,6 +19057,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DetectiveBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5911c3b0c201264685652de122b38d5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24308,6 +24363,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: fauteuil
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bdf563fdc8bf2824599a15bb12293932,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
     - target: {fileID: 6243068824878315167, guid: bdf563fdc8bf2824599a15bb12293932,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -27613,6 +27673,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_table
       objectReference: {fileID: 0}
+    - target: {fileID: 9182623969851862631, guid: f1a1dea969d98654d88e01801b6770f8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27727,6 +27792,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Detective_Desk
       objectReference: {fileID: 0}
+    - target: {fileID: 2011742100570416912, guid: 8888b21fb7c49e14cbb30a984c2af89d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
     - target: {fileID: 8360538982236227313, guid: 8888b21fb7c49e14cbb30a984c2af89d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27797,7 +27867,7 @@ GameObject:
   - component: {fileID: 8818212757659994467}
   m_Layer: 0
   m_Name: Assets Office
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28186,6 +28256,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MSH_Sofa_Soviet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6563954410912718068, guid: 98f778aa3b9439a4998e9f37240c3ac1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

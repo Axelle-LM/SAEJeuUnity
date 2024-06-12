@@ -21,13 +21,18 @@ public class Spawner : MonoBehaviour
 
     [NonSerialized] public bool m_isFinished = false;
 
+    private int randomMin = -5;
+    
+    private int randomMax = 5;
+
     void Update()
     {
         if (m_amountOfEnemyKilled < m_amountOfEnemyToKill)
         {
             if (m_enemies.Count < m_maxEnemiesOnField)
             {
-                GameObject newEnemy = Instantiate(m_enemyPrefab, transform.position, Quaternion.identity);
+                int randomNumber = UnityEngine.Random.Range(randomMin, randomMax);
+                GameObject newEnemy = Instantiate(m_enemyPrefab, new Vector3(transform.position.x+randomNumber, transform.position.y, transform.position.z+randomNumber), Quaternion.identity);
                 m_enemies.Add(newEnemy);
             }
 
@@ -45,12 +50,20 @@ public class Spawner : MonoBehaviour
             // Si le nombre d'ennemis tués atteint le nombre requis
             if (m_amountOfEnemyKilled >= m_amountOfEnemyToKill)
             {
-                // Fait apparaitre les collectibles à la position du dernier ennemi tué
+                // Fait apparaitre les collectibles
                 if (m_collectible1Prefab != null) { Instantiate(m_collectible1Prefab, transform.position, Quaternion.identity); }
                 if (m_collectible2Prefab != null) { Instantiate(m_collectible2Prefab, transform.position, Quaternion.identity); }
                 m_isFinished = true;
                 m_spawnerCounter.SetActive(false);
             }
+        }
+    }
+
+    void OnCollisionEnter(Collider collider)
+    {
+        if (collider.tag == "Prop")
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
         }
     }
 }
