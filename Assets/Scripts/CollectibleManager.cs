@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollectibleManager : MonoBehaviour
 {
@@ -14,6 +16,12 @@ public class CollectibleManager : MonoBehaviour
         {
             m_inventoryManager?.Add(m_collectibleData); //m_inventoryManager?.Example(); <=> if (m_inventoryManager != null) { Example(); }
             Destroy(gameObject);
+
+            if (m_collectibleData.name == "Coupable n°3")
+            {
+                SceneManager.LoadScene("GameEnd", LoadSceneMode.Single);
+            }
+
         }
     }
 }

@@ -19,6 +19,9 @@ public class EnemyHealth : MonoBehaviour
         if (m_enemyHealth <= 0)
         {
             Destroy(gameObject);
+
+            
         }
     }
+
 }

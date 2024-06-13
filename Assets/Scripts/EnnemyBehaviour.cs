@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.ProBuilder;
+using UnityEngine.SceneManagement;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -66,4 +67,6 @@ public class EnemyBehaviour : MonoBehaviour
         GameObject enemyBullet = Instantiate(m_projectile, transform.position + transform.forward, Quaternion.LookRotation(m_playerTransform.position - transform.position)); // Correction de l'orientation de la balle
         enemyBullet.GetComponent<Rigidbody>().AddForce(enemyBullet.transform.forward * m_launchVelocity); // Utilisation de transform.forward de la balle tirée pour la direction
     }
+
+ 
 }
